@@ -1,5 +1,5 @@
 // array to hold the alphabet
-let alphabet = Array.from('abcdefghijklmnopqrstuvwyz');
+let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y", "z"];
 
 // crypt function
 function ccCrypt(){
