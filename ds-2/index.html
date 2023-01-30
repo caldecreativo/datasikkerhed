@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ds-2 (One-Time Pads)</title>
+</head>
+<body>
+    <section>
+    <h1>One Time Pads</h1>
+    <button onclick="displayPads()">Generate One-Time Pads</button>
+    <div id="results"></div>
+    </section>
+    
+    <script>
+// function to generate One Time Pads
+function generateOTP(length, numbersOf) {
+
+  // empty array for pads
+  let pads = [];
+  // variablw with string of signs to generate the pad
+  let data = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  
+  // nestet loop
+  // outer loop loops through 'numbersOf'
+  for (let i = 0; i < numbersOf; i++) {
+    // empty string value to hold the characters
+    let pad = "";
+    // inner loop loops through 'length'
+    for (let j = 0; j < length; j++) {
+      pad += data[Math.floor(Math.random() * data.length)];     // adds random character from "data" to "pad"
+    }
+    pads.push(pad);     // pushes the finished pad to the "pads" array and is repeated for each iteration of the outer loop
+  }
+  
+  // returns the final array of pads
+  return pads;
+}
+
+function displayPads() {
+    // calls the other function and stores the result in the "pads" array
+    let pads = generateOTP(20, 4);
+    
+    // opens the unordered list
+    let output = "<ul>";
+    // loops through "pads" array and appends it to "output" inside a list 
+    for (let i = 0; i < pads.length; i++) {
+        output += "<li>" + pads[i] ;
+    }
+    // closes the unordered list
+    output += "<ul>";
+    // displays the list of pads
+    document.getElementById("results").innerHTML = output;
+}
+
+
+
+    </script>
+</body>
+</html>
